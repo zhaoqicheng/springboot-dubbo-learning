@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dubbo-client/dubbo-client.iml" filepath="$PROJECT_DIR$/dubbo-client/dubbo-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/dubbo-server/dubbo-server.iml" filepath="$PROJECT_DIR$/dubbo-server/dubbo-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbit-mq/rabbit-mq.iml" filepath="$PROJECT_DIR$/rabbit-mq/rabbit-mq.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-dubbo-learning.iml" filepath="$PROJECT_DIR$/springboot-dubbo-learning.iml" />
     </modules>
   </component>
