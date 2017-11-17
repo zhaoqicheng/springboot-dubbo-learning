@@ -1,8 +1,7 @@
-package com.example.demo.dubbo.impl;
+package com.example.demo.dubbo;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.example.demo.domain.City;
-import com.example.demo.dubbo.CityDubboService;
 
 
 /**
@@ -12,7 +11,7 @@ import com.example.demo.dubbo.CityDubboService;
  */
 // 注册为 Dubbo 服务
 @Service(version = "1.0.0")
-public class CityDubboServiceImpl implements CityDubboService {
+public class CityDubboServiceImpl implements ICityDubboService {
 
     @Override
     public City findCityByName(String cityName) {

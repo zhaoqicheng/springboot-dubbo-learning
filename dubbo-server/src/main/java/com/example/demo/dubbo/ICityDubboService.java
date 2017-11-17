@@ -8,7 +8,7 @@ import com.example.demo.domain.City;
  *
  * Created by bysocket on 28/02/2017.
  */
-public interface CityDubboService {
+public interface ICityDubboService {
 
     /**
      * 根据城市名称，查询城市信息
