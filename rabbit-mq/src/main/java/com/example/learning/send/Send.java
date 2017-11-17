@@ -2,8 +2,11 @@ package com.example.learning.send;
 
 /**
  * Created by zhaoqicheng on 2017/11/17.
- *
- * 参考：http://blog.csdn.net/zl18310999566/article/details/54341057
+ * <p>
+ * 参考：
+ * http://blog.csdn.net/zl18310999566/article/details/54341057
+ * http://blog.csdn.net/liaokailin/article/details/49559571
+ * https://www.cnblogs.com/boshen-hzb/p/6841982.html
  * todo 未完成  打游戏有点累，王者荣耀太坑了
  */
 

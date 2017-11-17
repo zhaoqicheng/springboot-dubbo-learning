@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd9d27ab-6580-4851-8d88-f38a74f9f966" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rabbit-mq/src/main/java/com/example/learning/config/AmqpConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rabbit-mq/src/main/java/com/example/learning/send/Send.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rabbit-mq/pom.xml" afterPath="$PROJECT_DIR$/rabbit-mq/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rabbit-mq/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/rabbit-mq/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rabbit-mq/src/main/java/com/example/learning/send/Send.java" afterPath="$PROJECT_DIR$/rabbit-mq/src/main/java/com/example/learning/send/Send.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,8 +58,8 @@
       <file leaf-file-name="Send.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rabbit-mq/src/main/java/com/example/learning/send/Send.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="65" lean-forward="false" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
+            <state relative-caret-position="135">
+              <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -643,12 +640,12 @@
       <workItem from="1510822425579" duration="11120000" />
       <workItem from="1510906434132" duration="772000" />
       <workItem from="1510908481132" duration="1227000" />
-      <workItem from="1510909776017" duration="1227000" />
+      <workItem from="1510909776017" duration="1383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14346000" />
+    <option name="totallyTimeSpent" value="14502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -974,8 +971,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rabbit-mq/src/main/java/com/example/learning/send/Send.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="65" lean-forward="false" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
+        <state relative-caret-position="135">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
