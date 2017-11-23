@@ -54,3 +54,8 @@ springCloud有类似于dubbo的功能，正在完善的springCloud未来很可�
 
 注意：
 zk只是告诉消费者A生产者B在哪里，然后A和B进行直连，不会参与其中的数据性的交互。
+
+
+rabbit-mq:
+安装
+http://www.jianshu.com/p/5eb62a6d249d

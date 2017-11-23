@@ -15,6 +15,8 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+import org.springframework.amqp.rabbit.support.CorrelationData;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,18 +25,18 @@ import org.springframework.context.annotation.Scope;
 import com.rabbitmq.client.Channel;
 
 /**
- * Qmqp Rabbitmq
+ * Rabbitmq
  * <p>
  * http://docs.spring.io/spring-amqp/docs/1.4.5.RELEASE/reference/html/
- *
- * @author lkl
- * @version $Id: AmqpConfig.java, v 0.1 2015年11月01日 下午2:05:37 lkl Exp $
- *          <p>
- *          不论是创建消息消费者或生产者都需要ConnectionFactory
- *          exchange:交换机名称
- *          routingKey:路由关键字
- *          object:发送的消息内容
- *          correlationData:消息ID
+ * <p>
+ * <p>
+ * 不论是创建消息消费者或生产者都需要ConnectionFactory
+ * exchange:交换机名称
+ * routingKey:路由关键字
+ * object:发送的消息内容
+ * correlationData:消息ID
+ * <p>
+ * rabbitmq端口说明：5672-amqp，25672-clustering，61613-stomp，1883-mqtt
  */
 
 @Configuration
@@ -43,6 +45,20 @@ public class AmqpConfig {
     public static final String EXCHANGE = "spring-boot-exchange";
     public static final String ROUTINGKEY = "spring-boot-routingKey";
 
+    /**
+     * 定义ConnectionFactory  无论是消息的生产者或者消费者都需要ConnectionFactory
+     * <p>
+     * <p>
+     * 相关配置释义:
+     * Virtual Host(虚拟交换机)：一个Virtual Host里面可以有若干个Exchange和Queue
+     * <p>
+     * PublisherConfirms：
+     * 消息回调（重要）
+     * 如果不设置，可能发生向路由中发送消息，路由将消息推送至队列，队列中的消息别消费而rabbitMQ无法知道，不会移除该任务，
+     * 这将会导致严重的bug——Queue中堆积的消息会越来越多；消费者重启后会重复消费这些消息并重复执行业务逻辑。
+     *
+     * @return
+     */
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
@@ -50,16 +66,40 @@ public class AmqpConfig {
         connectionFactory.setUsername("guest");
         connectionFactory.setPassword("guest");
         connectionFactory.setVirtualHost("/");
-        connectionFactory.setPublisherConfirms(true); //必须要设置
+        connectionFactory.setPublisherConfirms(true);
         return connectionFactory;
     }
 
+    /**
+     * 创建rabbitTemplate 消息模板类
+     * prototype原型模式:每次获取Bean的时候会有一个新的实例
+     * 因为要设置回调类，所以应是prototype类型，如果是singleton类型，则回调类为最后一次设置
+     *
+     * @return
+     */
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    //必须是prototype类型
     public RabbitTemplate rabbitTemplate() {
-        RabbitTemplate template = new RabbitTemplate(connectionFactory());
-        return template;
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
+
+//        // rabbitTemplate.setMandatory(true);//返回消息必须设置为true
+//        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());//数据转换为json存入消息队列
+////        //  rabbitTemplate.setReplyAddress(replyQueue().getName());
+////        //  rabbitTemplate.setReplyTimeout(100000000);
+////        //发布确认
+////        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
+////            //消息发送到queue时就执行
+////            @Override
+////            public void confirm(CorrelationData correlationData, boolean b, String s) {
+//////                log.debug(correlationData+"//////");
+//////                if (!b){
+//////                    log.debug("发送到queue失败");
+//////                    throw new RuntimeException("send error " + s);
+//////                }
+////            }
+////        });
+
+        return rabbitTemplate;
     }
 
     /**

@@ -7,7 +7,7 @@ package com.example.learning.send;
  * http://blog.csdn.net/zl18310999566/article/details/54341057
  * http://blog.csdn.net/liaokailin/article/details/49559571
  * https://www.cnblogs.com/boshen-hzb/p/6841982.html
- * todo 未完成  打游戏有点累，王者荣耀太坑了
+ *
  */
 
 import java.util.UUID;
@@ -21,8 +21,6 @@ import org.springframework.stereotype.Component;
 /**
  * 消息生产者
  *
- * @author liaokailin
- * @version $Id: Send.java, v 0.1 2015年11月01日 下午4:22:25 liaokailin Exp $
  */
 @Component
 public class Send implements RabbitTemplate.ConfirmCallback {
@@ -45,6 +43,7 @@ public class Send implements RabbitTemplate.ConfirmCallback {
 
     /**
      * 回调
+     * ack 对象是发送消息以后消息消息成功与否（需要进行事物控制）
      */
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {
