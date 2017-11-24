@@ -81,24 +81,6 @@ public class AmqpConfig {
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public RabbitTemplate rabbitTemplate() {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
-
-//        // rabbitTemplate.setMandatory(true);//返回消息必须设置为true
-//        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());//数据转换为json存入消息队列
-////        //  rabbitTemplate.setReplyAddress(replyQueue().getName());
-////        //  rabbitTemplate.setReplyTimeout(100000000);
-////        //发布确认
-////        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
-////            //消息发送到queue时就执行
-////            @Override
-////            public void confirm(CorrelationData correlationData, boolean b, String s) {
-//////                log.debug(correlationData+"//////");
-//////                if (!b){
-//////                    log.debug("发送到queue失败");
-//////                    throw new RuntimeException("send error " + s);
-//////                }
-////            }
-////        });
-
         return rabbitTemplate;
     }
 
